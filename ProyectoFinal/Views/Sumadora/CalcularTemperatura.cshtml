@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "CalcularTemperatura";
+}
+
+<h2>Calcular Temperatura</h2>
+
+<form action="~/Sumadora/CalcularTemperatura" method="post">
+    <div class="form-group">
+        <input type="number" class="form-control" placeholder="Escribe un valor" name="valor" value="" />
+    </div>
+    <div class="form-group">
+        <input type="type" class="form-control" placeholder="Conversion" name="name" value="@ViewBag.result" />
+    </div>
+
+    <button class="btn btn-warning" name="Convertir" value="Celsius">
+        Celsius
+    </button>
+    <button class="btn btn-danger" name="Convertir" value="Farenheit">
+        Farenheit
+    </button>
+    
+</form>

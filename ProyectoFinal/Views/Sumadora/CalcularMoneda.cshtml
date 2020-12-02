@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "CalcularMoneda";
+}
+
+<h2>Calcular Moneda</h2>
+
+<form action="~/Sumadora/CalcularMoneda" method="post">
+    <div class="form-group">
+        <input type="number" class="form-control" placeholder="Escribe un valor" name="valor" value="" />
+    </div>
+    <div class="form-group">
+        <input type="type" name="total" class="form-control" placeholder="Conversion" value="@ViewBag.resultado" />
+    </div>
+    <button class="btn btn-success" name="Conversor" value="Dolares">
+        Dolares
+    </button>
+    <button class="btn btn-danger" name="Conversor" value="Peso">
+        Peso
+    </button>
+</form>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RecursosHumanosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cargo">
+    <Key>
+      <PropertyRef Name="IDCar" />
+    </Key>
+    <Property Name="IDCar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomCargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK__Empleados__IDCar__09A971A2" FromRole="Cargo" ToRole="Empleados" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="IDDep" />
+    </Key>
+    <Property Name="IDDep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Departamento1" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK__Empleados__IDDep__08B54D69" FromRole="Departamento" ToRole="Empleados" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="99" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDDepartamento" Type="Int32" />
+    <Property Name="IDCargo" Type="Int32" />
+    <Property Name="FechaIng" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Salario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cargo" Relationship="Self.FK__Empleados__IDCar__09A971A2" FromRole="Empleados" ToRole="Cargo" />
+    <NavigationProperty Name="Departamento" Relationship="Self.FK__Empleados__IDDep__08B54D69" FromRole="Empleados" ToRole="Departamento" />
+  </EntityType>
+  <EntityType Name="Nominas">
+    <Key>
+      <PropertyRef Name="ID_Nominas" />
+    </Key>
+    <Property Name="ID_Nominas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Año" Type="Int32" />
+    <Property Name="Mes" Type="Int32" />
+    <Property Name="Total_Nomina" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__Empleados__IDCar__09A971A2">
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="IDCar" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="IDCargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleados__IDDep__08B54D69">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="IDDep" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="IDDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RecursosHumanosEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cargo" EntityType="Self.Cargo" />
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+    <EntitySet Name="Nominas" EntityType="Self.Nominas" />
+    <AssociationSet Name="FK__Empleados__IDCar__09A971A2" Association="Self.FK__Empleados__IDCar__09A971A2">
+      <End Role="Cargo" EntitySet="Cargo" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleados__IDDep__08B54D69" Association="Self.FK__Empleados__IDDep__08B54D69">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

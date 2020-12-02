@@ -1,0 +1,13 @@
+﻿body {
+    background-color: AliceBlue;
+}
+p {
+    font-family: 'Lora', serif;
+}
+h2 {
+    font-family: 'Lora', serif;
+}
+.navbar {
+    background-color: Navy;
+    font-family: 'Lora', serif;
+}

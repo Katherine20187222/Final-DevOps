@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RecursosHumanosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cargo">
+    <Key>
+      <PropertyRef Name="IDCar" />
+    </Key>
+    <Property Name="IDCar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomCargo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="IDDep" />
+    </Key>
+    <Property Name="IDDep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Departamento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cedula" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="99" Nullable="false" />
+    <Property Name="IDDepartamento" Type="int" />
+    <Property Name="IDCargo" Type="int" />
+    <Property Name="FechaIng" Type="date" Nullable="false" />
+    <Property Name="Salario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nominas">
+    <Key>
+      <PropertyRef Name="ID_Nominas" />
+    </Key>
+    <Property Name="ID_Nominas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Año" Type="int" />
+    <Property Name="Mes" Type="int" />
+    <Property Name="Total_Nomina" Type="int" />
+  </EntityType>
+  <Association Name="FK__Empleados__IDCar__09A971A2">
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="IDCar" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="IDCargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleados__IDDep__08B54D69">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="IDDep" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="IDDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RecursosHumanosModelStoreContainer">
+    <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nominas" EntityType="Self.Nominas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Empleados__IDCar__09A971A2" Association="Self.FK__Empleados__IDCar__09A971A2">
+      <End Role="Cargo" EntitySet="Cargo" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleados__IDDep__08B54D69" Association="Self.FK__Empleados__IDDep__08B54D69">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

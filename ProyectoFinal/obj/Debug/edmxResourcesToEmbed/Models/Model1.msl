@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RecursosHumanosModelStoreContainer" CdmEntityContainer="RecursosHumanosEntities4">
+    <EntitySetMapping Name="Cargo">
+      <EntityTypeMapping TypeName="RecursosHumanosModel.Cargo">
+        <MappingFragment StoreEntitySet="Cargo">
+          <ScalarProperty Name="IDCar" ColumnName="IDCar" />
+          <ScalarProperty Name="NomCargo" ColumnName="NomCargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamento">
+      <EntityTypeMapping TypeName="RecursosHumanosModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="IDDep" ColumnName="IDDep" />
+          <ScalarProperty Name="Departamento1" ColumnName="Departamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="RecursosHumanosModel.Empleados">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IDDepartamento" ColumnName="IDDepartamento" />
+          <ScalarProperty Name="IDCargo" ColumnName="IDCargo" />
+          <ScalarProperty Name="FechaIng" ColumnName="FechaIng" />
+          <ScalarProperty Name="Salario" ColumnName="Salario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nominas">
+      <EntityTypeMapping TypeName="RecursosHumanosModel.Nominas">
+        <MappingFragment StoreEntitySet="Nominas">
+          <ScalarProperty Name="Total_Nomina" ColumnName="Total_Nomina" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="ID_Nominas" ColumnName="ID_Nominas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
